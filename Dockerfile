@@ -6,6 +6,7 @@ MAINTAINER Enproduktion <n@produktion.io>
 
 USER root
 
+
 #
 # NOTE: THIS DOCKERFILE IS GENERATED VIA "update.sh"
 #
@@ -40,8 +41,8 @@ RUN { \
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
-ENV JAVA_VERSION 8u102
-ENV JAVA_DEBIAN_VERSION 8u102-b14.1-1~bpo8+1
+ENV JAVA_VERSION 8u111
+ENV JAVA_DEBIAN_VERSION 8u111-b14-2~bpo8+1
 
 # see https://bugs.debian.org/775775
 # and https://github.com/docker-library/java/issues/19#issuecomment-70546872
@@ -58,7 +59,7 @@ RUN set -x \
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-USER $NB_USER
 # If you're reading this and have any feedback on how this image could be
 #   improved, please open an issue or a pull request so we can discuss it!
 
+USER $NB_USER
