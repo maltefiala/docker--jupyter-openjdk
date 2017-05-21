@@ -7,7 +7,7 @@ USER root
 #
 # OPENJDK START
 #
-# https://raw.githubusercontent.com/docker-library/openjdk/bd3c2a9867c9dc6a9a8425a8df5c54edf0cbf2cc/8-jre/Dockerfile
+# https://raw.githubusercontent.com/docker-library/openjdk/415b0cc42d91ef5d70597d8a24d942967728242b/8-jdk/Dockerfile
 
 #
 # NOTE: THIS DOCKERFILE IS GENERATED VIA "update.sh"
@@ -43,10 +43,10 @@ RUN { \
 
 # do some fancy footwork to create a JAVA_HOME that's cross-architecture-safe
 RUN ln -svT "/usr/lib/jvm/java-8-openjdk-$(dpkg --print-architecture)" /docker-java-home
-ENV JAVA_HOME /docker-java-home/jre
+ENV JAVA_HOME /docker-java-home
 
-ENV JAVA_VERSION 8u121
-ENV JAVA_DEBIAN_VERSION 8u121-b13-1~bpo8+1
+ENV JAVA_VERSION 8u131
+ENV JAVA_DEBIAN_VERSION 8u131-b11-1~bpo8+1
 
 # see https://bugs.debian.org/775775
 # and https://github.com/docker-library/java/issues/19#issuecomment-70546872
@@ -56,7 +56,7 @@ RUN set -ex; \
 	\
 	apt-get update; \
 	apt-get install -y \
-		openjdk-8-jre-headless="$JAVA_DEBIAN_VERSION" \
+		openjdk-8-jdk="$JAVA_DEBIAN_VERSION" \
 		ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" \
 	; \
 	rm -rf /var/lib/apt/lists/*; \
@@ -74,6 +74,7 @@ RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 # If you're reading this and have any feedback on how this image could be
 #   improved, please open an issue or a pull request so we can discuss it!
+
 
 #
 # OPENJDK END
